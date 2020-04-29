@@ -1,0 +1,159 @@
+@import "colors.scss";
+@import "fonts.scss";
+
+body{
+  margin: 0px;
+  max-height: 980px;
+  height: 980px;
+}
+
+.roboto{
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.montserrat{
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.width-100{
+  width: 100% !important;
+}
+
+.bottom-border{
+   border-bottom: 1px solid $form-field-border;
+}
+
+.d-flex{
+  display: flex !important;
+}
+
+.d-block{
+  display: block !important;
+}
+
+.form-field-border-line{
+  border-radius: 3px; 
+  border: 1px solid $form-field-border;
+}
+
+.form-field-spacing{
+  padding: 8px 0px;
+}
+
+.base-form-field{
+  @extend .form-field-border-line !optional;
+  @extend .width-100 !optional;
+  @extend .form-field-spacing;
+  height: 28px;
+  font-size: 12px;
+  display: flex;
+	align-items: center;
+  justify-content: space-between;
+  margin: 12px 0px;
+
+  .placeholder{
+    padding-left: 20px;
+  }
+}
+
+.hide{
+  visibility: hidden;
+}
+
+.show{
+  visibility: visible;
+}
+
+
+
+.label{
+  @extend .width-100 !optional;
+  &.navy{
+    color: $text-sm-navy;
+  }
+
+  &.bold{
+    font-weight: 600;
+  }
+
+  &.md{
+    font-size: 14px;
+  }
+
+  &.sm{
+    font-size: 11px;
+  }
+
+  &.lg{
+    font-size: 18px;
+  }
+  &.slightly-expanded{
+    letter-spacing: .5px;
+  }
+}
+
+.dropdown{
+  @extend .base-form-field;
+	
+  .caret{
+    position: relative;
+    padding-right: 20px;
+  }
+
+}
+
+.text-field{
+  @extend .base-form-field;
+}
+
+
+$values: 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 60;
+@each $value in $values {
+    .font-size-#{$value} {
+        $v: $value / 10;
+        font-size: #{$v}rem !important;
+    }
+
+    .line-height-#{$value} {
+        $v: $value / 10;
+        line-height: #{$v}rem !important;
+    }
+}
+
+
+$values: 0 1 2 3 4 5 6 7 8 9 10 12 15 16 20 21 22 23 24 25 30 40 50;
+$props: padding margin;
+
+@each $value in $values {
+    @each $prop in $props {
+        .#{$prop}-#{$value} {
+            #{$prop}: #{$value}px !important;
+        }
+
+        .#{$prop}-vertical-#{$value} {
+            #{$prop}-top: #{$value}px !important;
+            #{$prop}-bottom: #{$value}px !important;
+        }
+
+        .#{$prop}-horizontal-#{$value} {
+            #{$prop}-left: #{$value}px !important;
+            #{$prop}-right: #{$value}px !important;
+        }
+
+        .#{$prop}-top-#{$value} {
+            #{$prop}-top: #{$value}px !important;
+        }
+
+        .#{$prop}-bottom-#{$value} {
+            #{$prop}-bottom: #{$value}px !important;
+        }
+
+        .#{$prop}-left-#{$value} {
+            #{$prop}-left: #{$value}px !important;
+        }
+
+        .#{$prop}-right-#{$value} {
+            #{$prop}-right: #{$value}px !important;
+        }
+    }
+}
